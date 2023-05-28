@@ -1,0 +1,43 @@
+<h2 mat-dialog-title> Agregar</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="example-container">
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Código</mat-label>
+        <input required [ngClass]="{'is-invalid': modalErrors?.code}" matInput placeholder="codigo"  [(ngModel)]="form.code" >
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <small *ngIf="modalErrors?.code == null" id="codeHelp" class="form-text text-muted">5 caracteres máximo.</small>
+
+        <div *ngIf="modalErrors?.code" class="invalid-feedback">{{ modalErrors.code }}</div>
+
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input required [ngClass]="{'is-invalid': modalErrors?.name}" matInput placeholder="nombre"  [(ngModel)]="form.name">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <small *ngIf="modalErrors?.name == null" id="nameHelp" class="form-text text-muted">255 caracteres máximo.</small>
+
+        <div *ngIf="modalErrors?.name" class="invalid-feedback">{{ modalErrors.name }}</div>
+
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Descripción</mat-label>
+        <input required [ngClass]="{'is-invalid': modalErrors?.description}" matInput placeholder="descripcion"  [(ngModel)]="form.description">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <small *ngIf="modalErrors?.description == null" id="descriptionHelp" class="form-text text-muted">255 caracteres máximo.</small>
+
+        <div *ngIf="modalErrors?.description" class="invalid-feedback">{{ modalErrors.description }}</div>
+
+      </mat-form-field>
+    </p>
+  </div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button  (click)="createItem()" cdkFocusInitial>Agregar</button>
+</mat-dialog-actions>
